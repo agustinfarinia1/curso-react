@@ -7,12 +7,20 @@ export const NavBar = () => {
             <h1>Proyecto</h1>
             <nav>
                 <ul>
-                    <li>Boton-1</li>
-                    <li>Boton-2</li>
-                    <li>Boton-3</li>
+                    <li>
+                        <a href="#">Boton-1</a>
+                    </li>
+                    <li>
+                        <a href="#">Boton-2</a>
+                    </li>
+                    <li>
+                        <a href="#">Boton-3</a>
+                    </li>
+                    <li>
+                        <Carrito />
+                    </li>
                 </ul>
             </nav>
-            <Carrito />
         </header>
     );
 };
