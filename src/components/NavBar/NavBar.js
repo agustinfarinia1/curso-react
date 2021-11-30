@@ -8,13 +8,13 @@ export const NavBar = () => {
             <nav>
                 <ul>
                     <li>
-                        <a href="#">Boton-1</a>
+                        <a href="#">Monitor</a>
                     </li>
                     <li>
-                        <a href="#">Boton-2</a>
+                        <a href="#">Teclado</a>
                     </li>
                     <li>
-                        <a href="#">Boton-3</a>
+                        <a href="#">Mouse</a>
                     </li>
                     <li>
                         <Carrito />

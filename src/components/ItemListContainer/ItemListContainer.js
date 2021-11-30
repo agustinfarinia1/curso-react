@@ -1,8 +1,28 @@
-export const ItemListContainer = ({ texto }) => {
+import { useEffect, useState } from "react";
+import { pedirDatos } from "../../helpers/pedirDatos";
+import { ItemList } from "../ItemList/ItemList";
+
+export const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+        pedirDatos()
+            .then((resp) => {
+                setItems(resp);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+
     return (
-        <div>
-            <h2>{texto}</h2>
-            <hr />
+        <div className="d-flex justify-content-center">
+            {loading ? <h2>Cargando...</h2> : <ItemList items={items} />}
         </div>
     );
 };
