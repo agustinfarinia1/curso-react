@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Item = ({ item }) => {
     return (
@@ -9,7 +10,12 @@ export const Item = ({ item }) => {
             <p>{item.desc}</p>
             <p>Categoría: {item.categoria}</p>
 
-            <button className="btn btn-primary">Ver más</button>
+            <Link
+                to={`/detail/${item.idProducto} `}
+                className="btn btn-primary"
+            >
+                Ver más
+            </Link>
         </div>
     );
 };

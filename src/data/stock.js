@@ -6,6 +6,7 @@ export const stock = [
         img: "https://via.placeholder.com/200",
         desc: "Primer producto",
         categoria: "Teclado",
+        stock: 20,
     },
     {
         idProducto: 2,
@@ -14,6 +15,7 @@ export const stock = [
         img: "https://via.placeholder.com/200",
         desc: "Segundo producto",
         categoria: "Mouse",
+        stock: 20,
     },
     {
         idProducto: 3,
@@ -21,7 +23,8 @@ export const stock = [
         precio: 3500,
         img: "https://via.placeholder.com/200",
         desc: "Tercer producto",
-        categoria: "Pantalla",
+        categoria: "Monitor",
+        stock: 20,
     },
     {
         idProducto: 4,
@@ -30,5 +33,6 @@ export const stock = [
         img: "https://via.placeholder.com/200",
         desc: "Cuarto producto",
         categoria: "Teclado",
+        stock: 20,
     },
 ];
