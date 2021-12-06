@@ -26,9 +26,6 @@ function App() {
                     <Route path="/cart" element={<CartView />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
-
-                {/* <ItemCount /> */}
-                {/* <PostApi /> */}
                 <Footer />
             </BrowserRouter>
         </CartProvider>

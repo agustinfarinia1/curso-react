@@ -1,11 +1,20 @@
 import React from "react";
 
-export const ItemCount = ({ increment, decrement, onAdd, counter }) => {
+export const ItemCount = ({
+    increment,
+    decrement,
+    onAdd,
+    counter,
+    min,
+    max,
+}) => {
     return (
         <div className="m-4">
             <button
                 className={
-                    counter ? "btn btn-primary" : "btn btn-outline-primary"
+                    counter === min
+                        ? "btn btn-outline-danger"
+                        : "btn btn-primary"
                 }
                 disabled={counter ? false : true}
                 onClick={decrement}
@@ -17,11 +26,11 @@ export const ItemCount = ({ increment, decrement, onAdd, counter }) => {
 
             <button
                 className={
-                    counter === 20
-                        ? "btn btn-outline-primary"
+                    counter === max
+                        ? "btn btn-outline-danger"
                         : "btn btn-primary"
                 }
-                disabled={counter === 20 ? true : false}
+                disabled={counter === max ? true : false}
                 onClick={increment}
             >
                 +

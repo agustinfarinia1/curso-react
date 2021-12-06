@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { pedirDatos } from "../../helpers/pedirDatos";
+import { db } from "../../firebase/config";
 import { ItemList } from "../ItemList/ItemList";
+import { Loader } from "../Loader/Loader";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
 
 export const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -10,16 +12,20 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        pedirDatos()
+        const productosRef = collection(db, "productos");
+        const q = categoryId
+            ? query(productosRef, where("categoria", "==", categoryId))
+            : productosRef;
+
+        getDocs(q)
             .then((resp) => {
-                if (categoryId) {
-                    setItems(resp.filter((el) => el.categoria === categoryId));
-                } else {
-                    setItems(resp);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
+                const productos = resp.docs.map((doc) => {
+                    return {
+                        id: doc.id,
+                        ...doc.data(),
+                    };
+                });
+                setItems(productos);
             })
             .finally(() => {
                 setLoading(false);
@@ -29,7 +35,7 @@ export const ItemListContainer = () => {
     return (
         <div className="d-flex justify-content-center">
             {loading ? (
-                <h2>Cargando...</h2>
+                <Loader />
             ) : (
                 <ItemList items={items} categoria={categoryId} />
             )}

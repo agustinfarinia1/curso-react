@@ -10,6 +10,8 @@ export const ItemDetail = ({ item }) => {
     const { isInCart } = useContext(CartContext);
     const { counter, increment, decrement } = useCounter(0, item.stock, 0);
 
+    console.log(item);
+
     const navigate = useNavigate();
 
     const handlerVolver = () => {
@@ -18,7 +20,7 @@ export const ItemDetail = ({ item }) => {
     const handleAgregar = () => {
         counter > 0 &&
             agregarAlCarrito({
-                id: item.idProducto,
+                id: item.id,
                 precio: item.precio,
                 nombre: item.nombre,
                 cantidad: counter,
@@ -31,12 +33,14 @@ export const ItemDetail = ({ item }) => {
             <h3>{item.nombre}</h3>
             <p>Precio: ${item.precio}</p>
             <p>{item.desc}</p>
-            {!isInCart(item.idProducto) ? (
+            {!isInCart(item.id) ? (
                 <ItemCount
                     increment={increment}
                     decrement={decrement}
                     onAdd={handleAgregar}
                     counter={counter}
+                    min={0}
+                    max={item.stock}
                 />
             ) : (
                 <Link to="/cart" className="btn btn-success my-2">

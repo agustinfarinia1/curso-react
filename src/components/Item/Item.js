@@ -10,10 +10,7 @@ export const Item = ({ item }) => {
             <p>{item.desc}</p>
             <p>Categoría: {item.categoria}</p>
 
-            <Link
-                to={`/detail/${item.idProducto} `}
-                className="btn btn-primary"
-            >
+            <Link to={`/detail/${item.id} `} className="btn btn-primary">
                 Ver más
             </Link>
         </div>
