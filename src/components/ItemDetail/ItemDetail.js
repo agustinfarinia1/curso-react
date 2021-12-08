@@ -10,8 +10,6 @@ export const ItemDetail = ({ item }) => {
     const { isInCart } = useContext(CartContext);
     const { counter, increment, decrement } = useCounter(0, item.stock, 0);
 
-    console.log(item);
-
     const navigate = useNavigate();
 
     const handlerVolver = () => {
