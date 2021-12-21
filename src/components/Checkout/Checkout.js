@@ -100,13 +100,6 @@ export const Checkout = () => {
                             Enviar
                         </button>
                     </form>
-                    <button
-                        className="btn btn-success"
-                        onClick={generarOrden}
-                        disabled={cart.length > 0 ? false : true}
-                    >
-                        Finalizar compra
-                    </button>
                 </>
             )}
         </div>
