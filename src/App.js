@@ -1,4 +1,3 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Footer } from "./components/Footer/Footer";
 import { NavBar } from "./components/NavBar/NavBar";
